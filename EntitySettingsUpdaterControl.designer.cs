@@ -29,33 +29,33 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EntitySettingsUpdaterControl));
-            System.Windows.Forms.ListViewGroup listViewGroup11 = new System.Windows.Forms.ListViewGroup("Process", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup12 = new System.Windows.Forms.ListViewGroup("Communication & Collaboration", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup13 = new System.Windows.Forms.ListViewGroup("Data Services", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup14 = new System.Windows.Forms.ListViewGroup("Auditing", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup15 = new System.Windows.Forms.ListViewGroup("Outlook & Mobile", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewItem listViewItem45 = new System.Windows.Forms.ListViewItem("Business process flows †");
-            System.Windows.Forms.ListViewItem listViewItem46 = new System.Windows.Forms.ListViewItem("Feedback †");
-            System.Windows.Forms.ListViewItem listViewItem47 = new System.Windows.Forms.ListViewItem("Notes (includes attachments) †");
-            System.Windows.Forms.ListViewItem listViewItem48 = new System.Windows.Forms.ListViewItem("Activities †");
-            System.Windows.Forms.ListViewItem listViewItem49 = new System.Windows.Forms.ListViewItem("Connections †");
-            System.Windows.Forms.ListViewItem listViewItem50 = new System.Windows.Forms.ListViewItem("Sending email †");
-            System.Windows.Forms.ListViewItem listViewItem51 = new System.Windows.Forms.ListViewItem("Mail merge");
-            System.Windows.Forms.ListViewItem listViewItem52 = new System.Windows.Forms.ListViewItem("Document management");
-            System.Windows.Forms.ListViewItem listViewItem53 = new System.Windows.Forms.ListViewItem("Access Teams");
-            System.Windows.Forms.ListViewItem listViewItem54 = new System.Windows.Forms.ListViewItem("Queues †");
-            System.Windows.Forms.ListViewItem listViewItem55 = new System.Windows.Forms.ListViewItem("Auto-fill queue");
-            System.Windows.Forms.ListViewItem listViewItem56 = new System.Windows.Forms.ListViewItem("Allow quick create");
-            System.Windows.Forms.ListViewItem listViewItem57 = new System.Windows.Forms.ListViewItem("Duplicate detection");
-            System.Windows.Forms.ListViewItem listViewItem58 = new System.Windows.Forms.ListViewItem("Auditing");
-            System.Windows.Forms.ListViewItem listViewItem59 = new System.Windows.Forms.ListViewItem("Change Tracking †");
-            System.Windows.Forms.ListViewItem listViewItem60 = new System.Windows.Forms.ListViewItem("Single record auditing");
-            System.Windows.Forms.ListViewItem listViewItem61 = new System.Windows.Forms.ListViewItem("Multiple record auditing");
-            System.Windows.Forms.ListViewItem listViewItem62 = new System.Windows.Forms.ListViewItem("Enable for phone express");
-            System.Windows.Forms.ListViewItem listViewItem63 = new System.Windows.Forms.ListViewItem("Enable for Unified Client");
-            System.Windows.Forms.ListViewItem listViewItem64 = new System.Windows.Forms.ListViewItem("Read-only in Unified Client");
-            System.Windows.Forms.ListViewItem listViewItem65 = new System.Windows.Forms.ListViewItem("Enable for Mobile offline");
-            System.Windows.Forms.ListViewItem listViewItem66 = new System.Windows.Forms.ListViewItem("Offline capability for Dynamics 365 for Outlook");
+            System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("Process", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup2 = new System.Windows.Forms.ListViewGroup("Communication & Collaboration", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup3 = new System.Windows.Forms.ListViewGroup("Data Services", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup4 = new System.Windows.Forms.ListViewGroup("Auditing", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup5 = new System.Windows.Forms.ListViewGroup("Outlook & Mobile", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("Business process flows †");
+            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("Feedback †");
+            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("Notes (includes attachments) †");
+            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("Activities †");
+            System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem("Connections †");
+            System.Windows.Forms.ListViewItem listViewItem6 = new System.Windows.Forms.ListViewItem("Sending email †");
+            System.Windows.Forms.ListViewItem listViewItem7 = new System.Windows.Forms.ListViewItem("Mail merge");
+            System.Windows.Forms.ListViewItem listViewItem8 = new System.Windows.Forms.ListViewItem("Document management");
+            System.Windows.Forms.ListViewItem listViewItem9 = new System.Windows.Forms.ListViewItem("Access Teams");
+            System.Windows.Forms.ListViewItem listViewItem10 = new System.Windows.Forms.ListViewItem("Queues †");
+            System.Windows.Forms.ListViewItem listViewItem11 = new System.Windows.Forms.ListViewItem("Auto-fill queue");
+            System.Windows.Forms.ListViewItem listViewItem12 = new System.Windows.Forms.ListViewItem("Allow quick create");
+            System.Windows.Forms.ListViewItem listViewItem13 = new System.Windows.Forms.ListViewItem("Duplicate detection");
+            System.Windows.Forms.ListViewItem listViewItem14 = new System.Windows.Forms.ListViewItem("Auditing");
+            System.Windows.Forms.ListViewItem listViewItem15 = new System.Windows.Forms.ListViewItem("Change Tracking †");
+            System.Windows.Forms.ListViewItem listViewItem16 = new System.Windows.Forms.ListViewItem("Single record auditing");
+            System.Windows.Forms.ListViewItem listViewItem17 = new System.Windows.Forms.ListViewItem("Multiple record auditing");
+            System.Windows.Forms.ListViewItem listViewItem18 = new System.Windows.Forms.ListViewItem("Enable for phone express");
+            System.Windows.Forms.ListViewItem listViewItem19 = new System.Windows.Forms.ListViewItem("Enable for Unified Client");
+            System.Windows.Forms.ListViewItem listViewItem20 = new System.Windows.Forms.ListViewItem("Read-only in Unified Client");
+            System.Windows.Forms.ListViewItem listViewItem21 = new System.Windows.Forms.ListViewItem("Enable for Mobile offline");
+            System.Windows.Forms.ListViewItem listViewItem22 = new System.Windows.Forms.ListViewItem("Offline capability for Dynamics 365 for Outlook");
             this.toolStripMenu = new System.Windows.Forms.ToolStrip();
             this.tsbClose = new System.Windows.Forms.ToolStripButton();
             this.tssSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -68,6 +68,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lstvw_settings = new System.Windows.Forms.ListView();
             this.lbl_settings = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.toolStripMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -178,96 +179,97 @@
             // lstvw_settings
             // 
             this.lstvw_settings.Cursor = System.Windows.Forms.Cursors.Default;
-            listViewGroup11.Header = "Process";
-            listViewGroup11.Name = "Process";
-            listViewGroup12.Header = "Communication & Collaboration";
-            listViewGroup12.Name = "CommunicationAndCollaboration";
-            listViewGroup13.Header = "Data Services";
-            listViewGroup13.Name = "DataServices";
-            listViewGroup14.Header = "Auditing";
-            listViewGroup14.Name = "Auditing";
-            listViewGroup15.Header = "Outlook & Mobile";
-            listViewGroup15.Name = "OutlookAndMobile";
+            this.lstvw_settings.Enabled = false;
+            listViewGroup1.Header = "Process";
+            listViewGroup1.Name = "Process";
+            listViewGroup2.Header = "Communication & Collaboration";
+            listViewGroup2.Name = "CommunicationAndCollaboration";
+            listViewGroup3.Header = "Data Services";
+            listViewGroup3.Name = "DataServices";
+            listViewGroup4.Header = "Auditing";
+            listViewGroup4.Name = "Auditing";
+            listViewGroup5.Header = "Outlook & Mobile";
+            listViewGroup5.Name = "OutlookAndMobile";
             this.lstvw_settings.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup11,
-            listViewGroup12,
-            listViewGroup13,
-            listViewGroup14,
-            listViewGroup15});
+            listViewGroup1,
+            listViewGroup2,
+            listViewGroup3,
+            listViewGroup4,
+            listViewGroup5});
             this.lstvw_settings.HideSelection = false;
-            listViewItem45.Group = listViewGroup11;
-            listViewItem45.Tag = "IsBusinessProcessEnabled";
-            listViewItem45.ToolTipText = "Fields will be created.";
-            listViewItem46.Group = listViewGroup12;
-            listViewItem46.Tag = "HasFeedback";
-            listViewItem47.Group = listViewGroup12;
-            listViewItem47.Tag = "HasNotes";
-            listViewItem48.Group = listViewGroup12;
-            listViewItem48.Tag = "HasActivities";
-            listViewItem49.Group = listViewGroup12;
-            listViewItem49.Tag = "IsConnectionsEnabled";
-            listViewItem50.Group = listViewGroup12;
-            listViewItem50.Tag = "IsActivityParty";
-            listViewItem50.ToolTipText = "If an email field does not exist, one will be created.";
-            listViewItem51.Group = listViewGroup12;
-            listViewItem51.Tag = "IsMailMergeEnabled";
-            listViewItem52.Group = listViewGroup12;
-            listViewItem52.Tag = "IsDocumentManagementEnabled";
-            listViewItem53.Group = listViewGroup12;
-            listViewItem53.Tag = "AutoCreateAccessTeams";
-            listViewItem54.Group = listViewGroup12;
-            listViewItem54.Tag = "IsValidForQueue";
-            listViewItem55.Group = listViewGroup12;
-            listViewItem55.Tag = "AutoRouteToOwnerQueue";
-            listViewItem55.ToolTipText = "Automatically move records to the owner\'s default queue when a record is created " +
+            listViewItem1.Group = listViewGroup1;
+            listViewItem1.Tag = "IsBusinessProcessEnabled";
+            listViewItem1.ToolTipText = "Fields will be created.";
+            listViewItem2.Group = listViewGroup2;
+            listViewItem2.Tag = "HasFeedback";
+            listViewItem3.Group = listViewGroup2;
+            listViewItem3.Tag = "HasNotes";
+            listViewItem4.Group = listViewGroup2;
+            listViewItem4.Tag = "HasActivities";
+            listViewItem5.Group = listViewGroup2;
+            listViewItem5.Tag = "IsConnectionsEnabled";
+            listViewItem6.Group = listViewGroup2;
+            listViewItem6.Tag = "IsActivityParty";
+            listViewItem6.ToolTipText = "If an email field does not exist, one will be created.";
+            listViewItem7.Group = listViewGroup2;
+            listViewItem7.Tag = "IsMailMergeEnabled";
+            listViewItem8.Group = listViewGroup2;
+            listViewItem8.Tag = "IsDocumentManagementEnabled";
+            listViewItem9.Group = listViewGroup2;
+            listViewItem9.Tag = "AutoCreateAccessTeams";
+            listViewItem10.Group = listViewGroup2;
+            listViewItem10.Tag = "IsValidForQueue";
+            listViewItem11.Group = listViewGroup2;
+            listViewItem11.Tag = "AutoRouteToOwnerQueue";
+            listViewItem11.ToolTipText = "Automatically move records to the owner\'s default queue when a record is created " +
     "or assigned.";
-            listViewItem56.Group = listViewGroup13;
-            listViewItem56.Tag = "IsQuickCreateEnabled";
-            listViewItem57.Group = listViewGroup13;
-            listViewItem57.Tag = "IsDuplicateDetectionEnabled";
-            listViewItem58.Group = listViewGroup13;
-            listViewItem58.Tag = "IsAuditEnabled";
-            listViewItem59.Group = listViewGroup13;
-            listViewItem59.Tag = "ChangeTrackingEnabled";
-            listViewItem60.Group = listViewGroup14;
-            listViewItem60.Tag = "IsRetrieveAuditEnabled";
-            listViewItem60.ToolTipText = "Log a record when opened.";
-            listViewItem61.Group = listViewGroup14;
-            listViewItem61.Tag = "IsRetrieveMultipleAuditEnabled";
-            listViewItem61.ToolTipText = "Log all records displayed on an opened page.";
-            listViewItem62.Group = listViewGroup15;
-            listViewItem62.Tag = "IsVisibleInMobile";
-            listViewItem63.Group = listViewGroup15;
-            listViewItem63.Tag = "IsVisibleInMobileClient";
-            listViewItem64.Group = listViewGroup15;
-            listViewItem64.Tag = "IsReadOnlyInMobileClient";
-            listViewItem65.Group = listViewGroup15;
-            listViewItem65.Tag = "IsOfflineInMobileClient";
-            listViewItem66.Group = listViewGroup15;
-            listViewItem66.Tag = "IsAvailableOffline";
+            listViewItem12.Group = listViewGroup3;
+            listViewItem12.Tag = "IsQuickCreateEnabled";
+            listViewItem13.Group = listViewGroup3;
+            listViewItem13.Tag = "IsDuplicateDetectionEnabled";
+            listViewItem14.Group = listViewGroup3;
+            listViewItem14.Tag = "IsAuditEnabled";
+            listViewItem15.Group = listViewGroup3;
+            listViewItem15.Tag = "ChangeTrackingEnabled";
+            listViewItem16.Group = listViewGroup4;
+            listViewItem16.Tag = "IsRetrieveAuditEnabled";
+            listViewItem16.ToolTipText = "Log a record when opened.";
+            listViewItem17.Group = listViewGroup4;
+            listViewItem17.Tag = "IsRetrieveMultipleAuditEnabled";
+            listViewItem17.ToolTipText = "Log all records displayed on an opened page.";
+            listViewItem18.Group = listViewGroup5;
+            listViewItem18.Tag = "IsVisibleInMobile";
+            listViewItem19.Group = listViewGroup5;
+            listViewItem19.Tag = "IsVisibleInMobileClient";
+            listViewItem20.Group = listViewGroup5;
+            listViewItem20.Tag = "IsReadOnlyInMobileClient";
+            listViewItem21.Group = listViewGroup5;
+            listViewItem21.Tag = "IsOfflineInMobileClient";
+            listViewItem22.Group = listViewGroup5;
+            listViewItem22.Tag = "IsAvailableOffline";
             this.lstvw_settings.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem45,
-            listViewItem46,
-            listViewItem47,
-            listViewItem48,
-            listViewItem49,
-            listViewItem50,
-            listViewItem51,
-            listViewItem52,
-            listViewItem53,
-            listViewItem54,
-            listViewItem55,
-            listViewItem56,
-            listViewItem57,
-            listViewItem58,
-            listViewItem59,
-            listViewItem60,
-            listViewItem61,
-            listViewItem62,
-            listViewItem63,
-            listViewItem64,
-            listViewItem65,
-            listViewItem66});
+            listViewItem1,
+            listViewItem2,
+            listViewItem3,
+            listViewItem4,
+            listViewItem5,
+            listViewItem6,
+            listViewItem7,
+            listViewItem8,
+            listViewItem9,
+            listViewItem10,
+            listViewItem11,
+            listViewItem12,
+            listViewItem13,
+            listViewItem14,
+            listViewItem15,
+            listViewItem16,
+            listViewItem17,
+            listViewItem18,
+            listViewItem19,
+            listViewItem20,
+            listViewItem21,
+            listViewItem22});
             this.lstvw_settings.Location = new System.Drawing.Point(210, 44);
             this.lstvw_settings.Name = "lstvw_settings";
             this.lstvw_settings.ShowItemToolTips = true;
@@ -285,10 +287,20 @@
             this.lbl_settings.TabIndex = 25;
             this.lbl_settings.Text = "Settings";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(321, 532);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(253, 13);
+            this.label1.TabIndex = 30;
+            this.label1.Text = "† - After you enable this option it cannot be disabled.";
+            // 
             // EntitySettingsUpdaterControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.lstvw_settings);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lbl_action);
@@ -300,7 +312,7 @@
             this.Controls.Add(this.toolStripMenu);
             this.Name = "EntitySettingsUpdaterControl";
             this.PluginIcon = ((System.Drawing.Icon)(resources.GetObject("$this.PluginIcon")));
-            this.Size = new System.Drawing.Size(713, 538);
+            this.Size = new System.Drawing.Size(713, 625);
             this.TabIcon = ((System.Drawing.Image)(resources.GetObject("$this.TabIcon")));
             this.Load += new System.EventHandler(this.EntitySettingsUpdaterControl_Load);
             this.toolStripMenu.ResumeLayout(false);
@@ -324,5 +336,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ListView lstvw_settings;
         private System.Windows.Forms.Label lbl_settings;
+        private System.Windows.Forms.Label label1;
     }
 }

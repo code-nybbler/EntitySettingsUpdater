@@ -8,7 +8,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 using XrmToolBox.Extensibility;
-using XrmToolBox.Extensibility.Args;
 
 namespace EntitySettingsUpdater
 {
@@ -18,7 +17,6 @@ namespace EntitySettingsUpdater
         private List<EntityMetadata> entities;
         private List<string> selectedEntities;
         private List<ListViewItem> selectedSettings;
-        public event EventHandler SendMessageToStatusBar;
 
         public EntitySettingsUpdaterControl()
         {
@@ -221,50 +219,111 @@ namespace EntitySettingsUpdater
 
         private void UpdateEntitySettings(bool enable)
         {
-            UpdateEntityRequest updatereq;
-            UpdateEntityResponse updateresp;
-            EntityMetadata retrievedEntity;
-            int progressInterval = selectedEntities.Count / 100;
+            UpdateEntityRequest updateRequest;
+            RetrieveEntityRequest retrieveRequest;
+            RetrieveEntityResponse retrieveResponse;
+            EntityMetadata entity;
+            bool settingUpdateSuccessful = true;
 
-            foreach (var entity in selectedEntities)
+            foreach (var selectedEntity in selectedEntities)
             {
-                retrievedEntity = entities.Find(x => x.LogicalName == entity.ToString());
+                entity = entities.Find(x => x.LogicalName == selectedEntity.ToString());
 
-                if (retrievedEntity != null)
+                if (entity != null)
                 {
-                    updatereq = new UpdateEntityRequest();
+                    updateRequest = new UpdateEntityRequest();
 
                     foreach (ListViewItem setting in selectedSettings)
                     {
                         switch (setting.Tag.ToString())
                         {
-                            case "IsBusinessProcessEnabled": retrievedEntity.IsBusinessProcessEnabled = enable; break;
-                            case "HasFeedback": updatereq.HasFeedback = enable; break;
-                            case "HasNotes": updatereq.HasNotes = enable; break;
-                            case "HasActivities": updatereq.HasActivities = enable; break;
-                            case "IsConnectionsEnabled": retrievedEntity.IsConnectionsEnabled = new BooleanManagedProperty(enable); break;
-                            case "IsActivityParty": retrievedEntity.IsActivityParty = enable; break;
-                            case "IsMailMergeEnabled": retrievedEntity.IsMailMergeEnabled = new BooleanManagedProperty(enable); break;
-                            case "IsDocumentManagementEnabled": retrievedEntity.IsDocumentManagementEnabled = enable; break;
-                            case "AutoCreateAccessTeams": retrievedEntity.AutoCreateAccessTeams = enable; break;
-                            case "IsValidForQueue": retrievedEntity.IsValidForQueue = new BooleanManagedProperty(enable); break;
-                            case "AutoRouteToOwnerQueue": retrievedEntity.AutoRouteToOwnerQueue = enable; break;
-                            case "IsQuickCreateEnabled": retrievedEntity.IsQuickCreateEnabled = enable; break;
-                            case "IsDuplicateDetectionEnabled": retrievedEntity.IsDuplicateDetectionEnabled = new BooleanManagedProperty(enable); break;
-                            case "IsAuditEnabled": retrievedEntity.IsAuditEnabled = new BooleanManagedProperty(enable); break;                            
-                            case "ChangeTrackingEnabled": retrievedEntity.ChangeTrackingEnabled =enable; break;
-                            case "IsRetrieveAuditEnabled": retrievedEntity.IsRetrieveAuditEnabled = enable; break;
-                            case "IsRetrieveMultipleAuditEnabled": retrievedEntity.IsRetrieveMultipleAuditEnabled = enable; break;
-                            case "IsVisibleInMobile": retrievedEntity.IsVisibleInMobile = new BooleanManagedProperty(enable); break;
-                            case "IsVisibleInMobileClient": retrievedEntity.IsVisibleInMobileClient = new BooleanManagedProperty(enable); break;
-                            case "IsReadOnlyInMobileClient": retrievedEntity.IsReadOnlyInMobileClient = new BooleanManagedProperty(enable); break;
-                            case "IsOfflineInMobileClient": retrievedEntity.IsOfflineInMobileClient = new BooleanManagedProperty(enable); break;
-                            case "IsAvailableOffline": retrievedEntity.IsAvailableOffline = enable; break;
+                            case "IsBusinessProcessEnabled": entity.IsBusinessProcessEnabled = enable; break;
+                            case "HasFeedback": updateRequest.HasFeedback = enable; break;
+                            case "HasNotes": updateRequest.HasNotes = enable; break;
+                            case "HasActivities": updateRequest.HasActivities = enable; break;
+                            case "IsConnectionsEnabled": entity.IsConnectionsEnabled = new BooleanManagedProperty(enable); break;
+                            case "IsActivityParty": entity.IsActivityParty = enable; break;
+                            case "IsMailMergeEnabled": entity.IsMailMergeEnabled = new BooleanManagedProperty(enable); break;
+                            case "IsDocumentManagementEnabled": entity.IsDocumentManagementEnabled = enable; break;
+                            case "AutoCreateAccessTeams": entity.AutoCreateAccessTeams = enable; break;
+                            case "IsValidForQueue": entity.IsValidForQueue = new BooleanManagedProperty(enable); break;
+                            case "AutoRouteToOwnerQueue": entity.AutoRouteToOwnerQueue = enable; break;
+                            case "IsQuickCreateEnabled": entity.IsQuickCreateEnabled = enable; break;
+                            case "IsDuplicateDetectionEnabled": entity.IsDuplicateDetectionEnabled = new BooleanManagedProperty(enable); break;
+                            case "IsAuditEnabled": entity.IsAuditEnabled = new BooleanManagedProperty(enable); break;                            
+                            case "ChangeTrackingEnabled": entity.ChangeTrackingEnabled = enable; break;
+                            case "IsRetrieveAuditEnabled": entity.IsRetrieveAuditEnabled = enable; break;
+                            case "IsRetrieveMultipleAuditEnabled": entity.IsRetrieveMultipleAuditEnabled = enable; break;
+                            case "IsVisibleInMobile": entity.IsVisibleInMobile = new BooleanManagedProperty(enable); break;
+                            case "IsVisibleInMobileClient": entity.IsVisibleInMobileClient = new BooleanManagedProperty(enable); break;
+                            case "IsReadOnlyInMobileClient": entity.IsReadOnlyInMobileClient = new BooleanManagedProperty(enable); break;
+                            case "IsOfflineInMobileClient": entity.IsOfflineInMobileClient = new BooleanManagedProperty(enable); break;
+                            case "IsAvailableOffline": entity.IsAvailableOffline = enable; break;
                             default: MessageBox.Show($"Setting \"{setting.Tag}\" not found."); break;
                         }
                     }
-                    updatereq.Entity = retrievedEntity;                    
-                    updateresp = (UpdateEntityResponse)Service.Execute(updatereq);
+                    updateRequest.Entity = entity;
+
+                    try
+                    {
+                        Service.Execute(updateRequest);
+
+                        // Retrieve the entity to verify settings
+                        retrieveRequest = new RetrieveEntityRequest
+                        {
+                            EntityFilters = EntityFilters.All,
+                            LogicalName = selectedEntity,
+                            RetrieveAsIfPublished = true
+                        };
+
+                        retrieveResponse = (RetrieveEntityResponse)Service.Execute(retrieveRequest);
+
+                        foreach (ListViewItem setting in selectedSettings)
+                        {
+                            switch (setting.Tag.ToString())
+                            {
+                                case "IsBusinessProcessEnabled": settingUpdateSuccessful = retrieveResponse.EntityMetadata.IsBusinessProcessEnabled.Value == enable ? true : false; break;
+                                case "HasFeedback": settingUpdateSuccessful = retrieveResponse.EntityMetadata.HasFeedback.Value == enable ? true : false; break;
+                                case "HasNotes": settingUpdateSuccessful = retrieveResponse.EntityMetadata.HasNotes.Value == enable ? true : false; break;
+                                case "HasActivities": settingUpdateSuccessful = retrieveResponse.EntityMetadata.HasActivities.Value == enable ? true : false; break;
+                                case "IsConnectionsEnabled": settingUpdateSuccessful = retrieveResponse.EntityMetadata.IsConnectionsEnabled.Value = enable; break;
+                                case "IsActivityParty": settingUpdateSuccessful = retrieveResponse.EntityMetadata.IsActivityParty.Value == enable ? true : false; break;
+                                case "IsMailMergeEnabled": settingUpdateSuccessful = retrieveResponse.EntityMetadata.IsMailMergeEnabled.Value == enable ? true : false; break;
+                                case "IsDocumentManagementEnabled": settingUpdateSuccessful = retrieveResponse.EntityMetadata.IsDocumentManagementEnabled.Value == enable ? true : false; break;
+                                case "AutoCreateAccessTeams": settingUpdateSuccessful = retrieveResponse.EntityMetadata.AutoCreateAccessTeams.Value == enable ? true : false; break;
+                                case "IsValidForQueue": settingUpdateSuccessful = retrieveResponse.EntityMetadata.IsValidForQueue.Value == enable ? true : false; break;
+                                case "AutoRouteToOwnerQueue": settingUpdateSuccessful = retrieveResponse.EntityMetadata.AutoRouteToOwnerQueue.Value == enable ? true : false; break;
+                                case "IsQuickCreateEnabled": settingUpdateSuccessful = retrieveResponse.EntityMetadata.IsQuickCreateEnabled.Value == enable ? true : false; break;
+                                case "IsDuplicateDetectionEnabled": settingUpdateSuccessful = retrieveResponse.EntityMetadata.IsDuplicateDetectionEnabled.Value == enable ? true : false; break;
+                                case "IsAuditEnabled": settingUpdateSuccessful = retrieveResponse.EntityMetadata.IsAuditEnabled.Value == enable ? true : false; break;
+                                case "ChangeTrackingEnabled": settingUpdateSuccessful = retrieveResponse.EntityMetadata.ChangeTrackingEnabled.Value == enable ? true : false; break;
+                                case "IsRetrieveAuditEnabled": settingUpdateSuccessful = retrieveResponse.EntityMetadata.IsRetrieveAuditEnabled.Value == enable ? true : false; break;
+                                case "IsRetrieveMultipleAuditEnabled": settingUpdateSuccessful = retrieveResponse.EntityMetadata.IsRetrieveMultipleAuditEnabled.Value == enable ? true : false; break;
+                                case "IsVisibleInMobile": settingUpdateSuccessful = retrieveResponse.EntityMetadata.IsVisibleInMobile.Value == enable ? true : false; break;
+                                case "IsVisibleInMobileClient": settingUpdateSuccessful = retrieveResponse.EntityMetadata.IsVisibleInMobileClient.Value == enable ? true : false; break;
+                                case "IsReadOnlyInMobileClient": settingUpdateSuccessful = retrieveResponse.EntityMetadata.IsReadOnlyInMobileClient.Value == enable ? true : false; break;
+                                case "IsOfflineInMobileClient": settingUpdateSuccessful = retrieveResponse.EntityMetadata.IsOfflineInMobileClient.Value == enable ? true : false; break;
+                                case "IsAvailableOffline": settingUpdateSuccessful = retrieveResponse.EntityMetadata.IsAvailableOffline.Value == enable ? true : false; break;
+                                default: break;
+                            }
+
+                            if (settingUpdateSuccessful == false)
+                            {
+                                if (setting.Text.Contains("†") && enable == false)
+                                {
+                                    MessageBox.Show($"{setting.Text} setting update for {selectedEntity} failed. Settings with † cannot be disabled.");
+                                }
+                                else
+                                {
+                                    MessageBox.Show($"{setting.Text} setting update for {selectedEntity} failed. Please double check which settings are allowed to be enabled/disabled for this entity.");
+                                }
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Settings update for {selectedEntity} failed for the following reason: {ex.Message}.");
+                    }
                 }
             }
         }
